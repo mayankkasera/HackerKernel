@@ -2,6 +2,7 @@ package com.rightbuy.hackerkerneltask.network.pojo
 
 
 import com.google.gson.annotations.SerializedName
+import com.rightbuy.hackerkerneltask.network.utils.MyResponce
 
 data class AuthenticationResponse(
     @SerializedName("data")
@@ -10,7 +11,14 @@ data class AuthenticationResponse(
     var message: String = "",
     @SerializedName("return")
     var returnX: Boolean = false
-) {
+): MyResponce {
+    override fun getStatus(): Boolean? {
+        return returnX
+    }
+
+
+
+
     data class Data(
         @SerializedName("api_token")
         var apiToken: String = "",

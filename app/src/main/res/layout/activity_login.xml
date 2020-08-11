@@ -181,4 +181,15 @@
 
     </LinearLayout>
 
+    <com.wang.avi.AVLoadingIndicatorView
+        android:visibility="gone"
+        android:id="@+id/loader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        app:indicatorColor="@color/white"
+        app:indicatorName="BallPulseIndicator"
+        android:layout_centerInParent="true"
+        />
+
 </RelativeLayout>

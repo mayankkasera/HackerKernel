@@ -1,35 +1,33 @@
 package com.rightbuy.hackerkerneltask.network.authentication
 
-import android.util.Log
+
 import com.rightbuy.hackerkerneltask.network.pojo.AuthenticationBody
 import com.rightbuy.hackerkerneltask.network.pojo.AuthenticationResponse
+import com.rightbuy.hackerkerneltask.network.utils.CustomError
+import com.rightbuy.hackerkerneltask.network.utils.NetworkHelper
 import io.reactivex.Observable
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+
 
 class AuthenticationRepository(var authenticationRequests: AuthenticationRequests) : AuthenticationRepositoryI {
-    override fun getRomanticComedy(authenticationBody: AuthenticationBody): Observable<AuthenticationResponse> {
+    override fun getRomanticComedy(networkHelper : NetworkHelper<AuthenticationResponse>,authenticationBody: AuthenticationBody): Observable<AuthenticationResponse> {
         return Observable.create<AuthenticationResponse> { emitter ->
-            authenticationRequests.signIn(authenticationBody).enqueue(object :
-                Callback<AuthenticationResponse> {
-                override fun onResponse(call: Call<AuthenticationResponse>, response: Response<AuthenticationResponse>) {
-                    Log.i("kdsjcn", "onResponse  body : " + response.body().toString())
-                    Log.i("kdsjcn", "onResponse  : " + response.toString())
-                    response.body()?.let {
-                        emitter.onNext(it)
-                        emitter.onComplete()
-                    } ?: run {
-                        emitter.onNext(AuthenticationResponse())
-                        emitter.onComplete()
-                    }
+
+            networkHelper.postRequest(authenticationRequests.signIn(authenticationBody),object :NetworkHelper.Callback<AuthenticationResponse>{
+                override fun onResponce(responce: AuthenticationResponse) {
+                    emitter.onNext(responce)
+                    emitter.onComplete()
                 }
 
-                override fun onFailure(call: Call<AuthenticationResponse>, t: Throwable) {
-                    Log.i("kdsjcn", "onFailure " + t.toString())
-                    emitter.onError(t)
+                override fun onError(responce: String?) {
+                    emitter.onError(CustomError(responce!!))
                 }
+
+                override fun onFailed(responce: String?) {
+                    emitter.onError(CustomError(responce!!))
+                }
+
             })
         }
     }
+
 }
