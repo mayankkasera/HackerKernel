@@ -1,7 +1,7 @@
 package com.example.task_diagnal_technologies.di.component
 
 import android.content.Context
-import com.example.task_diagnal_technologies.di.module.DataModule
+import com.rightbuy.hackerkerneltask.di.module.DataModule
 import com.rightbuy.hackerkerneltask.network.utils.DataHelper
 import dagger.BindsInstance
 import dagger.Component
