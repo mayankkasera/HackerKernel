@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Home"
+        android:id="@+id/home"
+        android:icon="@drawable/maskgroup8"
+        />
+
+    <item android:title="Dashboard"
+        android:id="@+id/menu"
+        android:icon="@drawable/maskgroup19"
+        />
+
+    <item android:title="Log out"
+        android:id="@+id/logout"
+        android:icon="@drawable/maskgroup22"
+        />
+</menu>

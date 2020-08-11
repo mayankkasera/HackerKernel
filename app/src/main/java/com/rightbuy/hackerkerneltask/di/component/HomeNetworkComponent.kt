@@ -2,21 +2,21 @@ package com.example.task_diagnal_technologies.di.component
 
 import android.content.Context
 import com.rightbuy.hackerkerneltask.di.module.DataModule
-import com.rightbuy.hackerkerneltask.network.utils.DataHelper
+import com.rightbuy.hackerkerneltask.network.utils.HomeDataHelper
+import com.rightbuy.hackerkerneltask.network.utils.AuthenticationDataHelper
 import dagger.BindsInstance
 import dagger.Component
-import retrofit2.Retrofit
 import javax.inject.Named
 import javax.inject.Singleton
 
 @Singleton
 @Component(modules = [DataModule::class])
-interface NetworkComponent {
+interface HomeNetworkComponent {
 
-    fun inject(dataHelper: DataHelper)
+    fun inject(homeDataHelper: HomeDataHelper)
 
     @Component.Factory
     interface Factory {
-        fun create(@BindsInstance @Named("name") name: String, @BindsInstance @Named("appContext") context: Context): NetworkComponent
+        fun create(@BindsInstance @Named("name") name: String, @BindsInstance @Named("appContext") context: Context): HomeNetworkComponent
     }
 }

@@ -5,10 +5,10 @@ import com.rightbuy.hackerkerneltask.network.authentication.AuthenticationReposi
 import com.rightbuy.hackerkerneltask.utils.App
 import javax.inject.Inject
 
-class DataHelper {
+class AuthenticationDataHelper {
 
     init {
-        App.networkComponent()?.inject(this)
+        App.networkAuthenticationComponent()?.inject(this)
     }
 
     @Inject

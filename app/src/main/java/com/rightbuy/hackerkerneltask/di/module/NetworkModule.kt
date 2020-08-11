@@ -3,6 +3,7 @@ package com.rightbuy.hackerkerneltask.di.module
 import android.content.Context
 import com.example.task_alphawizz.di.intersepter.AuthorizationInterceptor
 import com.rightbuy.hackerkerneltask.network.authentication.AuthenticationRequests
+import com.rightbuy.hackerkerneltask.network.photo.PhotoRequests
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
@@ -38,6 +39,12 @@ class NetworkModule{
     @Singleton
     fun provideAuthenticationRequest(retrofit: Retrofit) : AuthenticationRequests {
         return retrofit.create(AuthenticationRequests::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun providePhotoRequest(retrofit: Retrofit) : PhotoRequests {
+        return retrofit.create(PhotoRequests::class.java)
     }
 
 

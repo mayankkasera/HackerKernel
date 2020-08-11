@@ -14,7 +14,7 @@ import io.reactivex.schedulers.Schedulers
 class AuthenticationViewModel(var authenticationRepositoryI : AuthenticationRepositoryI) : ViewModel() {
 
     private var compositeDisposable = CompositeDisposable()
-    public val mutableLiveData: MutableLiveData<AuthenticationState> = MutableLiveData()
+    val mutableLiveData: MutableLiveData<AuthenticationState> = MutableLiveData()
 
     fun authenticat(networkHelper : NetworkHelper<AuthenticationResponse>,authenticationBody : AuthenticationBody) {
         compositeDisposable.add(

@@ -10,7 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.rightbuy.hackerkerneltask.R
 import com.rightbuy.hackerkerneltask.network.pojo.AuthenticationBody
 import com.rightbuy.hackerkerneltask.network.pojo.AuthenticationResponse
-import com.rightbuy.hackerkerneltask.network.utils.DataHelper
+import com.rightbuy.hackerkerneltask.network.utils.AuthenticationDataHelper
 import com.rightbuy.hackerkerneltask.network.utils.NetworkHelper
 import com.rightbuy.hackerkerneltask.utils.ValidationsUtils
 import com.rightbuy.hackerkerneltask.utils.createFactory
@@ -43,7 +43,7 @@ class AuthenticationActivity : AppCompatActivity() {
 
     private fun init() {
         networkHelper = NetworkHelper(this)
-        val factory = AuthenticationViewModel(DataHelper().authenticationRepositoryI).createFactory()
+        val factory = AuthenticationViewModel(AuthenticationDataHelper().authenticationRepositoryI).createFactory()
         authenticationViewModel = ViewModelProvider(this, factory).get(AuthenticationViewModel::class.java)
     }
 
