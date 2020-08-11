@@ -1,5 +1,6 @@
 package com.rightbuy.hackerkerneltask.ui.authentication
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -7,11 +8,13 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.fxn.stash.Stash
 import com.rightbuy.hackerkerneltask.R
 import com.rightbuy.hackerkerneltask.network.pojo.AuthenticationBody
 import com.rightbuy.hackerkerneltask.network.pojo.AuthenticationResponse
 import com.rightbuy.hackerkerneltask.network.utils.AuthenticationDataHelper
 import com.rightbuy.hackerkerneltask.network.utils.NetworkHelper
+import com.rightbuy.hackerkerneltask.ui.main.MainActivity
 import com.rightbuy.hackerkerneltask.utils.ValidationsUtils
 import com.rightbuy.hackerkerneltask.utils.createFactory
 import kotlinx.android.synthetic.main.activity_login.*
@@ -53,7 +56,11 @@ class AuthenticationActivity : AppCompatActivity() {
             login.isEnabled = true
             when(it){
                 is AuthenticationState.Succes -> {
-                    Log.i("sdcbdj",it.toString())
+                    Stash.put("email",it.data.email);
+                    Stash.put("name",it.data.name);
+                    Stash.put("loginStatus",true);
+                    startActivity(Intent(this, MainActivity::class.java))
+                    finish()
                 }
                 is AuthenticationState.Failure -> {
                     Log.i("sdcbdj",it.message)

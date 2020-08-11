@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Feature article"
+        android:id="@+id/home"
+        android:icon="@drawable/maskgroup8"
+      />
+
+    <item android:title="All Article"
+        android:id="@+id/allartical"
+        android:icon="@drawable/maskgroup19"
+       />
+
+    <item android:title="Third tab"
+        android:id="@+id/third"
+        android:icon="@drawable/maskgroup18"
+        />
+</menu>
