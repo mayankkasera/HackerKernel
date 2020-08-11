@@ -1,4 +1,4 @@
-package com.rightbuy.hackerkerneltask.network.authentication
+package com.rightbuy.hackerkerneltask.network.api.authentication
 
 
 import com.rightbuy.hackerkerneltask.network.pojo.AuthenticationBody
@@ -8,7 +8,8 @@ import com.rightbuy.hackerkerneltask.network.utils.NetworkHelper
 import io.reactivex.Observable
 
 
-class AuthenticationRepository(var authenticationRequests: AuthenticationRequests) : AuthenticationRepositoryI {
+class AuthenticationRepository(var authenticationRequests: AuthenticationRequests) :
+    AuthenticationRepositoryI {
     override fun getRomanticComedy(networkHelper : NetworkHelper<AuthenticationResponse>,authenticationBody: AuthenticationBody): Observable<AuthenticationResponse> {
         return Observable.create<AuthenticationResponse> { emitter ->
 

@@ -1,4 +1,4 @@
-package com.rightbuy.hackerkerneltask.network.authentication
+package com.rightbuy.hackerkerneltask.network.api.authentication
 
 import com.rightbuy.hackerkerneltask.network.pojo.AuthenticationBody
 import com.rightbuy.hackerkerneltask.network.pojo.AuthenticationResponse

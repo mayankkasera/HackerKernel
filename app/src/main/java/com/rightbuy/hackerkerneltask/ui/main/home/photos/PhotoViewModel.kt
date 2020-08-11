@@ -2,7 +2,7 @@ package com.rightbuy.hackerkerneltask.ui.main.home.photos
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.rightbuy.hackerkerneltask.network.photo.PhotoRepositoryI
+import com.rightbuy.hackerkerneltask.network.api.photo.PhotoRepositoryI
 import com.rightbuy.hackerkerneltask.ui.authentication.AuthenticationState
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable

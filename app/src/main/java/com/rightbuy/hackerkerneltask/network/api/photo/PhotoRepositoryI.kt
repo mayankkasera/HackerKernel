@@ -1,4 +1,4 @@
-package com.rightbuy.hackerkerneltask.network.photo
+package com.rightbuy.hackerkerneltask.network.api.photo
 
 import com.rightbuy.hackerkerneltask.network.pojo.AuthenticationResponse
 import com.rightbuy.hackerkerneltask.network.pojo.PhotoRespose

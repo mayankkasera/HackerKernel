@@ -7,7 +7,7 @@
         />
 
     <item android:title="Dashboard"
-        android:id="@+id/menu"
+        android:id="@+id/dashboard"
         android:icon="@drawable/maskgroup19"
         />
 

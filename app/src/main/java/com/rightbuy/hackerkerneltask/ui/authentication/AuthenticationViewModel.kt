@@ -3,7 +3,7 @@ package com.rightbuy.hackerkerneltask.ui.authentication
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
-import com.rightbuy.hackerkerneltask.network.authentication.AuthenticationRepositoryI
+import com.rightbuy.hackerkerneltask.network.api.authentication.AuthenticationRepositoryI
 import com.rightbuy.hackerkerneltask.network.pojo.AuthenticationBody
 import com.rightbuy.hackerkerneltask.network.pojo.AuthenticationResponse
 import com.rightbuy.hackerkerneltask.network.utils.NetworkHelper

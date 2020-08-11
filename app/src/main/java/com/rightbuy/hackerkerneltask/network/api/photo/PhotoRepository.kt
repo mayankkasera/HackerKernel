@@ -1,4 +1,4 @@
-package com.rightbuy.hackerkerneltask.network.photo
+package com.rightbuy.hackerkerneltask.network.api.photo
 
 import android.util.Log
 
@@ -9,7 +9,8 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class PhotoRepository (var photoRequests : PhotoRequests): PhotoRepositoryI {
+class PhotoRepository (var photoRequests : PhotoRequests):
+    PhotoRepositoryI {
     override fun getPhotos(): Observable<List<PhotoRespose>> {
         return Observable.create<List<PhotoRespose>> { emitter ->
             photoRequests.getPhotos().enqueue(object : Callback<List<PhotoRespose>> {

@@ -7,7 +7,9 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
+import com.fxn.stash.Stash
 import com.rightbuy.hackerkerneltask.R
+import com.rightbuy.hackerkerneltask.ui.main.dashboard.DashBoardFragment
 import com.rightbuy.hackerkerneltask.ui.main.home.HomeFragment
 import kotlinx.android.synthetic.main.activity_home.*
 
@@ -23,6 +25,21 @@ class MainActivity : AppCompatActivity() {
         drawer.addDrawerListener(toogle)
         toogle.syncState()
 
+        navigation.setNavigationItemSelectedListener{
+            when(it.itemId){
+                R.id.home ->{
+                    replace(HomeFragment())
+                }
+                R.id.dashboard ->{
+                    replace(DashBoardFragment())
+                }
+                R.id.logout -> {
+                    Stash.clearAll()
+                }
+            }
+            return@setNavigationItemSelectedListener true
+        }
+
 
         menu.setOnClickListener {
             menuClick()
@@ -32,8 +49,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun replace(fragment: Fragment) {
-        val ft =
-            supportFragmentManager.beginTransaction()
+        val ft = supportFragmentManager.beginTransaction()
         ft.replace(R.id.frame, fragment!!)
         ft.commit()
     }
